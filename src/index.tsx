@@ -14,7 +14,7 @@ export type RLottieViewProps = ViewProps & {
 };
 
 const RLottieView = isFabricEnabled
-  ? require('./specs/RLottieViewNativeComponent').default
+  ? require('./RLottieViewNativeComponent').default
   : requireNativeComponent<RLottieViewProps>('RLottieView');
 
 export default RLottieView;
