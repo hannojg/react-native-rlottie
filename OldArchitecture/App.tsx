@@ -22,7 +22,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <StatusBar/>
-      <RLottieView src={lottieAnim} style={styles.animation} />
+      <RLottieView isAutoPlay src={lottieAnim} style={styles.animation} />
     </SafeAreaView>
   );
 };
