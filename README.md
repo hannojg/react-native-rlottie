@@ -6,12 +6,11 @@
 
 - ▶️ Uses [rlottie](https://github.com/Samsung/rlottie) to run lottie animations
 - 🌠 rlottie creates rasterized bitmaps for each frame of the animation (instead of using the platform's animation API to continuisly run the animation).
-    - This means effectively we are just showing a series of images
     - This also gives us the possibility to pre-render the animation into cache, so even complex animation can start and run in 60 FPS
 -  ✅ Compatible with the new architecture (Fabric)
 - 🤖 Especially on android, using rlottie can be more performant than [lottie-android](https://github.com/airbnb/lottie-android) (which is used by [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native)):
   - 📉 Using less CPU and RAM
-  - 🏃‍♂️ Puts less pressure on the UI Thread, ensuring 60 FPS even on low end devices
+  - 🏃‍♂️ Puts less pressure on the UI/main Thread, ensuring 60 FPS even on low end devices
   - Read more in [Performance Comparison]()
 
 ## Performance Comparison
