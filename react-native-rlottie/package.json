@@ -40,7 +40,7 @@
     "codegenConfig": {
         "libraries": [
             {
-                "name": "RNRLottieViewSpec",
+                "name": "RLottieViewSpec",
                 "type": "components",
                 "jsSrcsDir": "src"
             }

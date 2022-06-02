@@ -11,11 +11,59 @@
 #import "rlottie/rlottie.h"
 #import "LottieTypes.h"
 
+// This guard prevent the code from being compiled in the old architecture
+#ifdef RCT_NEW_ARCH_ENABLED
+
+#import <react/renderer/components/RLottieViewSpec/ComponentDescriptors.h>
+#import <react/renderer/components/RLottieViewSpec/EventEmitters.h>
+#import <react/renderer/components/RLottieViewSpec/Props.h>
+#import <react/renderer/components/RLottieViewSpec/RCTComponentViewHelpers.h>
+
+#import "RCTFabricComponentsPlugins.h"
+
+using namespace facebook::react;
+
+@interface RNColoredView () <RCTColoredViewViewProtocol>
+
+@end
+#endif
+
 @implementation RLottieView
 {
-  std::string src;
-  LottieInfo* info;
+    std::string src;
+    LottieInfo* info;
+    UIImageView* _view;
 }
+
+#ifdef RCT_NEW_ARCH_ENABLED
++ (ComponentDescriptorProvider)componentDescriptorProvider
+{
+    return concreteComponentDescriptorProvider<ColoredViewComponentDescriptor>();
+}
+
+Class<RCTComponentViewProtocol> RLottieViewCls(void)
+{
+    return RLottieView.class;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        static const auto defaultProps = std::make_shared<const RLottieViewProps>();
+        _props = defaultProps;
+
+        _view = [[UIImageView alloc] init];
+
+        self.contentView = _view;
+    }
+    return self;
+}
+
+- (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
+{
+    // TODO: implement update on prop change
+}
+#endif
 
 - (instancetype)init
 {
