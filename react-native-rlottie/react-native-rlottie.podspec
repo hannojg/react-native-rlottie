@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
 
   # Make c++ header visible to objc++
   s.pod_target_xcconfig = { 
-    'HEADER_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/rlottie/include"',
+    'HEADER_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/librlottie/include"',
   }
 end

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ACA064E02848B98200B7AE47 /* RNLottieViewManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACA064DF2848B98200B7AE47 /* RNLottieViewManager.mm */; };
-		ACA064EA2848BA3B00B7AE47 /* RLottieView.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACA064E82848BA3B00B7AE47 /* RLottieView.mm */; };
+		ACA064EE2848C18600B7AE47 /* RLottieView.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACA064ED2848C18600B7AE47 /* RLottieView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +26,9 @@
 /* Begin PBXFileReference section */
 		ACA064DB2848B98200B7AE47 /* libRNLottieView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLottieView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA064DF2848B98200B7AE47 /* RNLottieViewManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RNLottieViewManager.mm; sourceTree = "<group>"; };
-		ACA064E72848BA3B00B7AE47 /* RLottieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RLottieView.h; path = "../../../../research-animation-performance/ios/RLottie/RLottieView.h"; sourceTree = "<group>"; };
-		ACA064E82848BA3B00B7AE47 /* RLottieView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RLottieView.mm; path = "../../../../research-animation-performance/ios/RLottie/RLottieView.mm"; sourceTree = "<group>"; };
-		ACA064E92848BA3B00B7AE47 /* LottieTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LottieTypes.h; path = "../../../../research-animation-performance/ios/RLottie/LottieTypes.h"; sourceTree = "<group>"; };
+		ACA064EB2848C18600B7AE47 /* LottieTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LottieTypes.h; sourceTree = "<group>"; };
+		ACA064EC2848C18600B7AE47 /* RLottieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLottieView.h; sourceTree = "<group>"; };
+		ACA064ED2848C18600B7AE47 /* RLottieView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RLottieView.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +61,9 @@
 		ACA064DD2848B98200B7AE47 /* RNLottieView */ = {
 			isa = PBXGroup;
 			children = (
-				ACA064E92848BA3B00B7AE47 /* LottieTypes.h */,
-				ACA064E72848BA3B00B7AE47 /* RLottieView.h */,
-				ACA064E82848BA3B00B7AE47 /* RLottieView.mm */,
+				ACA064EB2848C18600B7AE47 /* LottieTypes.h */,
+				ACA064EC2848C18600B7AE47 /* RLottieView.h */,
+				ACA064ED2848C18600B7AE47 /* RLottieView.mm */,
 				ACA064DF2848B98200B7AE47 /* RNLottieViewManager.mm */,
 			);
 			path = RNLottieView;
@@ -126,7 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACA064EA2848BA3B00B7AE47 /* RLottieView.mm in Sources */,
+				ACA064EE2848C18600B7AE47 /* RLottieView.mm in Sources */,
 				ACA064E02848B98200B7AE47 /* RNLottieViewManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

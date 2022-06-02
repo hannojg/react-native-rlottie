@@ -9,10 +9,10 @@
 
 #import "RLottieView.h"
 
-@interface RLottieViewManager : RCTViewManager
+@interface RNLottieViewManager : RCTViewManager
 @end
 
-@implementation RLottieViewManager
+@implementation RNLottieViewManager
 
 RCT_EXPORT_MODULE(RLottieView)
 RCT_EXPORT_VIEW_PROPERTY(src, NSString);
