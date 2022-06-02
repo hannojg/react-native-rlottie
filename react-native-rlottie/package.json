@@ -36,5 +36,14 @@
     "peerDependencies": {
         "react": "*",
         "react-native": "*"
+    },
+    "codegenConfig": {
+        "libraries": [
+            {
+                "name": "RNRLottieViewSpec",
+                "type": "components",
+                "jsSrcsDir": "src"
+            }
+        ]
     }
 }
