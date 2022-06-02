@@ -50,6 +50,7 @@
     "prettier": "^2.0.5",
     "react-native": "^0.68.2",
     "react-native-builder-bob": "^0.18.2",
+    "release-it": "^15.0.0",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
@@ -90,6 +91,23 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
   },
   "eslintConfig": {
     "root": true,
