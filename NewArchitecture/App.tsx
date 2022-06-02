@@ -13,6 +13,7 @@
    SafeAreaView,
    StatusBar,
    StyleSheet,
+   Text,
  } from 'react-native';
  import RLottieView from 'react-native-rlottie/src/RLottieViewNativeComponent';
  
@@ -22,7 +23,8 @@
    return (
      <SafeAreaView>
        <StatusBar/>
-       <RLottieView isAutoPlay src={lottieAnim} style={styles.animation} />
+       <Text>RLottie using new arch</Text>
+       <RLottieView src={lottieAnim} isAutoPlay style={styles.animation} />
      </SafeAreaView>
    );
  };

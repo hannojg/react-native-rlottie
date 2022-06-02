@@ -3,6 +3,7 @@
 #include <CoreComponentsRegistry.h>
 #include <fbjni/fbjni.h>
 #include <react/renderer/componentregistry/ComponentDescriptorProviderRegistry.h>
+#include <react/renderer/components/rlottieview/ComponentDescriptors.h>
 #include <react/renderer/components/rncore/ComponentDescriptors.h>
 
 namespace facebook {
@@ -19,6 +20,7 @@ MainComponentsRegistry::sharedProviderRegistry() {
   //
   // providerRegistry->add(concreteComponentDescriptorProvider<
   //        AocViewerComponentDescriptor>());
+  providerRegistry->add(concreteComponentDescriptorProvider<RLottieViewComponentDescriptor>());
   return providerRegistry;
 }
 
