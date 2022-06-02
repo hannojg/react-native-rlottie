@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.aghajari.rlottie.AXrLottie;
 import com.aghajari.rlottie.AXrLottieDrawable;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewManagerDelegate;
@@ -31,7 +32,7 @@ public class RLottieViewManager extends SimpleViewManager<RLottieView>
 
     @Nullable
     @Override
-    protected ViewManagerDelegate<ColoredView> getDelegate() {
+    protected ViewManagerDelegate<RLottieView> getDelegate() {
         return mDelegate;
     }
 
