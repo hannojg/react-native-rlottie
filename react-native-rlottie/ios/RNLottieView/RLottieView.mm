@@ -23,7 +23,7 @@
 
 using namespace facebook::react;
 
-@interface RNColoredView () <RCTColoredViewViewProtocol>
+@interface RLottieView () <RCTRLottieViewViewProtocol>
 
 @end
 #endif
@@ -38,7 +38,7 @@ using namespace facebook::react;
 #ifdef RCT_NEW_ARCH_ENABLED
 + (ComponentDescriptorProvider)componentDescriptorProvider
 {
-    return concreteComponentDescriptorProvider<ColoredViewComponentDescriptor>();
+    return concreteComponentDescriptorProvider<RLottieViewComponentDescriptor>();
 }
 
 Class<RCTComponentViewProtocol> RLottieViewCls(void)
@@ -62,6 +62,7 @@ Class<RCTComponentViewProtocol> RLottieViewCls(void)
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
 {
     // TODO: implement update on prop change
+    [super updateProps:props oldProps:oldProps];
 }
 #endif
 
@@ -114,8 +115,13 @@ Class<RCTComponentViewProtocol> RLottieViewCls(void)
     [animatedImages addObject:image];
   }
   NSLog(@"Frame calculation took %f", CFAbsoluteTimeGetCurrent() - timeInSeconds);
-  
-  self.image = [UIImage animatedImageWithImages:animatedImages duration:info->duration];
+
+    UIImage* animatedImage = [UIImage animatedImageWithImages:animatedImages duration:info->duration];
+#ifdef RCT_NEW_ARCH_ENABLED
+    _view.image = animatedImage;
+#else
+    self.image = animatedImage;
+#endif
 }
 
 // https://github.com/SDWebImage/SDWebImage/blob/fda0a57de98d391e8244cc0f80c583e2c67d9e8f/SDWebImage/Core/SDImageCoderHelper.m#L191

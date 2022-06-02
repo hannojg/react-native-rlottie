@@ -7,7 +7,7 @@ export interface NativeProps extends ViewProps {
 	 * @default false
 	 */
 	isAutoPlay?: boolean;
-	progress?: number | Animated.Value | Animated.AnimatedInterpolation;
+	progress?: Float;
 }
 
 export default codegenNativeComponent<NativeProps>(
