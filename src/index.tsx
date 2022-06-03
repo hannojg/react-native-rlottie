@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Animated,
   requireNativeComponent,
@@ -9,15 +10,15 @@ import {
 const isFabricEnabled = global.nativeFabricUIManager != null;
 
 export type RLottieViewProps = ViewProps & {
-  src: string;
+  source: string; // TODO: support "AnimationObject | { uri: string }" as well;
   /**
-   * @default false
+   * @default true
    */
-  isAutoPlay?: boolean;
+  autoPlay?: boolean;
   progress?: number | Animated.Value | Animated.AnimatedInterpolation;
 };
 
-const RLottieView = isFabricEnabled
+const NativeRLottieView = isFabricEnabled
   ? require('./RLottieViewNativeComponent').default
   : requireNativeComponent<RLottieViewProps>('RLottieView');
 
@@ -27,8 +28,29 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-if (RLottieView == null) {
+if (NativeRLottieView == null) {
   throw new Error(LINKING_ERROR);
 }
 
-export default RLottieView;
+export default class RLottieView extends React.PureComponent<RLottieViewProps> {
+  static displayName = 'RLottieView';
+
+  constructor(props: RLottieViewProps) {
+    super(props);
+  }
+
+  render() {
+    const { source, autoPlay = true, ...otherProps } = this.props;
+
+    const sourceJson =
+      typeof source === 'object' ? JSON.stringify(source) : source;
+
+    return (
+      <NativeRLottieView
+        src={sourceJson}
+        isAutoPlay={autoPlay}
+        {...otherProps}
+      />
+    );
+  }
+}

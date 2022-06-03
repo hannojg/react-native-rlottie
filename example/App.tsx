@@ -2,14 +2,14 @@ import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
 import RLottieView from 'react-native-rlottie';
 
-const lottieAnim = JSON.stringify(require('./assets/icon_trophy.json'));
+const lottieAnim = require('./assets/icon_trophy.json');
 
 const App = () => {
   return (
     <SafeAreaView>
       <StatusBar />
       <Text>RLottie using new arch</Text>
-      <RLottieView src={lottieAnim} isAutoPlay style={styles.animation} />
+      <RLottieView source={lottieAnim} style={styles.animation} />
     </SafeAreaView>
   );
 };
