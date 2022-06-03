@@ -13,6 +13,37 @@
   - 🏃‍♂️ Puts less pressure on the UI/main Thread, ensuring 60 FPS even on low end devices
   - Read more in [Performance Comparison]()
 
+## Usage
+
+Wew try to be as close to the [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) implementation API, so you can use this library as drop-in replacement.
+
+So loading a local animation really is the same:
+
+```jsx
+import React from 'react';
+import {View} from 'react-native';
+import RLottieView from 'react-native-rlottie';
+
+const lottieAnim = require('./assets/icon_trophy.json');
+
+const App = () => {
+  return (
+    <View>
+      <RLottieView source={lottieAnim} style={styles.animation} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  animation: {
+    height: 700,
+    width: 700,
+  },
+});
+
+export default App;
+```
+
 ## Performance Comparison
 
 ```
@@ -119,3 +150,8 @@ Go into `example/ios` and run the following command setting `RCT_NEW_ARCH_ENABLE
 ```bash
 cd ios && RCT_NEW_ARCH_ENABLED=1 pod install && cd ..
 ```
+
+## References / Used libraries / Thanks
+
+- https://github.com/Aghajari/AXrLottie - Used for android implementation, does all the heavy lifting, thx <3
+- https://github.com/SDWebImage/librlottie-Xcode - Providing rlottie as cocoapods package, ready to be consumed by XCode, thx <3
