@@ -1,9 +1,13 @@
-import { Animated, requireNativeComponent, ViewProps } from 'react-native';
+import {
+  Animated,
+  requireNativeComponent,
+  ViewProps,
+  Platform,
+} from 'react-native';
 
 // @ts-expect-error
 const isFabricEnabled = global.nativeFabricUIManager != null;
 
-// TODO: i think the types here can be removed?
 export type RLottieViewProps = ViewProps & {
   src: string;
   /**
@@ -16,5 +20,15 @@ export type RLottieViewProps = ViewProps & {
 const RLottieView = isFabricEnabled
   ? require('./RLottieViewNativeComponent').default
   : requireNativeComponent<RLottieViewProps>('RLottieView');
+
+const LINKING_ERROR =
+  `The package 'react-native-rlottie' doesn't seem to be linked. Make sure: \n\n` +
+  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
+  '- You rebuilt the app after installing the package\n' +
+  '- You are not using Expo managed workflow\n';
+
+if (RLottieView == null) {
+  throw new Error(LINKING_ERROR);
+}
 
 export default RLottieView;
