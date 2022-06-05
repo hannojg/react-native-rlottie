@@ -1,6 +1,7 @@
 package nl.skillnation.rlottie;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.aghajari.rlottie.AXrLottie;
 import com.aghajari.rlottie.AXrLottieDrawable;
@@ -51,6 +52,7 @@ public class RLottieViewManagerImpl extends SimpleViewManager<RLottieView> {
 
     @ReactProp(name="progress")
     public void setProgress(RLottieView view, float progress) {
+        if (view == null || view.getLottieDrawable() == null) return; // TODO: With new arch setProgress isn't called (thus the animation isn't running)
         view.getLottieDrawable().setProgress(progress);
     }
 

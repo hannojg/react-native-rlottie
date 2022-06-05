@@ -10,6 +10,10 @@ export const HomeScreen = ({navigation}: NativeStackHeaderProps) => {
         title="▶️ Simple auto play animation"
         onPress={() => navigation.navigate('SimpleViewScreen')}
       />
+      <Item
+        title="🫰 Manually control animation progress"
+        onPress={() => navigation.navigate('ManualControlScreen')}
+      />
     </ScrollView>
   );
 };
