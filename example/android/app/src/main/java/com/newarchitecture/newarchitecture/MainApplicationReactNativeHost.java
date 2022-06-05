@@ -22,6 +22,8 @@ import com.facebook.react.uimanager.ViewManagerRegistry;
 import com.newarchitecture.BuildConfig;
 import com.newarchitecture.newarchitecture.components.MainComponentsRegistry;
 import com.newarchitecture.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.newarchitecture.performancetracker.PerformanceTrackerPackage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +51,7 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
     //     packages.add(new MyReactNativePackage());
     // TurboModules must also be loaded here providing a valid TurboReactPackage implementation:
     //     packages.add(new TurboReactPackage() { ... });
+    packages.add(new PerformanceTrackerPackage());
     // If you have custom Fabric Components, their ViewManagers should also be loaded here
     // inside a ReactPackage.
     return packages;
