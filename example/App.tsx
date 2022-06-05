@@ -1,24 +1,19 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
-import RLottieView from 'react-native-rlottie';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {HomeScreen} from './src/screens/HomeScreen';
+import {SimpleViewScreen} from './src/screens/SimpleViewScreen';
 
-const lottieAnim = require('./assets/icon_trophy.json');
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <StatusBar />
-      <Text>RLottie using new arch</Text>
-      <RLottieView source={lottieAnim} style={styles.animation} />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="SimpleViewScreen" component={SimpleViewScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  animation: {
-    height: 700,
-    width: 700,
-  },
-});
-
 export default App;
