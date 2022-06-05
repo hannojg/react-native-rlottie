@@ -50,5 +50,14 @@
       "json",
       "node"
     ]
-  }
+  },
+  "codegenConfig": {
+    "libraries": [
+        {
+        "name": "PerformanceTracker",
+        "type": "modules",
+        "jsSrcsDir": "src/PerformanceTracker"
+        }
+    ]
+}
 }
