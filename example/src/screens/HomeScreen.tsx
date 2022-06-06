@@ -2,8 +2,11 @@ import React from 'react';
 import {ScrollView} from 'react-native';
 import {Item} from '../components/Item';
 import type {NativeStackHeaderProps} from '@react-navigation/native-stack';
+// import PerformanceTracker from '../PerformanceTracker';
 
 export const HomeScreen = ({navigation}: NativeStackHeaderProps) => {
+  // PerformanceTracker.start();
+
   return (
     <ScrollView>
       <Item

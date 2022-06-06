@@ -8,8 +8,11 @@ import com.facebook.react.bridge.ReactMethod;
 import nl.skillnation.performancetracker.NativePerformanceTrackerSpec;
 
 public class PerformanceTrackerModule extends NativePerformanceTrackerSpec {
+    private final PerformanceTrackerImpl performanceTracker;
+
     public PerformanceTrackerModule(ReactApplicationContext reactContext) {
         super(reactContext);
+        this.performanceTracker = new PerformanceTrackerImpl(reactContext);
     }
 
     @NonNull
@@ -21,12 +24,12 @@ public class PerformanceTrackerModule extends NativePerformanceTrackerSpec {
     @Override
     @ReactMethod
     public void start() {
-        PerformanceTrackerImpl.start();
+        performanceTracker.start();
     }
 
     @Override
     @ReactMethod
     public void stop() {
-        PerformanceTrackerImpl.stop();
+        performanceTracker.stop();
     }
 }
