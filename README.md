@@ -15,7 +15,7 @@
 
 ## Usage
 
-Wew try to be as close to the [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) implementation API, so you can use this library as drop-in replacement.
+We try to be as close to the [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) implementation API, so you can use this library as drop-in replacement.
 
 So loading a local animation really is the same:
 
@@ -105,7 +105,7 @@ No additional steps for android are required, except when using the new react na
         libreact_debug \
     ```
 1. Open the `android/app/src/main/jni/MainComponentsRegistry.cpp` file and update the file as it follows:
-    1. Add the import for the calculator:
+    1. Add the import for the RLottieView:
         ```diff
             #include <react/renderer/components/answersolver/ComponentDescriptors.h>
         +   #include <react/renderer/components/rlottieview/ComponentDescriptors.h>
