@@ -1,7 +1,5 @@
 # 🌈 react-native-rlottie
 
-🚧 WIP, please check again later!
-
 ## Features
 
 - ▶️ Uses [rlottie](https://github.com/Samsung/rlottie) to run lottie animations
@@ -173,9 +171,17 @@ No additional steps for android are required, except when using the new react na
 ## Supported After Effects Features
 
 This has full feature parity with rlottie, so check their [supported features here](https://github.com/Samsung/rlottie#supported-after-effects-features)
-
+ 
+## Caveats
+    
+In our testing, on iOS, there is a blocking of the UI thread and it takes some time until the animation is ready (for our most complex animation its 2s!).
+On iOS we are still missing some of the optimziation that we have already on android such as async/threaded frame decoding on the fly.
+Once we add those features we believe the performance can be similar to android. However, more development/research is needed.
+If you are an iOS dev, we welcome you to take on the challenge and improve or provide wisdom 🙌
 
 ## Development
+    
+We are open for and welcoming contribution of any kind!
 
 To develop this library use the `example/`. Simply install the dependencies in the root dir
 with `yarn` and then install the dependencies in the `example/`.
