@@ -561,6 +561,13 @@ PODS:
   - React-jsinspector (0.68.2)
   - React-logger (0.68.2):
     - glog
+  - react-native-performance-stats (0.2.3):
+    - RCT-Folly (= 2021.06.28.00-v2)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - ReactCommon/turbomodule/core
   - react-native-rlottie (0.0.2-alpha.2):
     - librlottie
     - RCT-Folly (= 2021.06.28.00-v2)
@@ -713,6 +720,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-performance-stats (from `../node_modules/react-native-performance-stats`)
   - react-native-rlottie (from `../..`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -783,6 +791,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-performance-stats:
+    :path: "../node_modules/react-native-performance-stats"
   react-native-rlottie:
     :path: "../.."
   react-native-safe-area-context:
@@ -848,6 +858,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b7b553412f2ec768fe6c8f27cd6bafdb9d8719e6
   React-jsinspector: c5989c77cb89ae6a69561095a61cce56a44ae8e8
   React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
+  react-native-performance-stats: 4f4206e531ed7c9c0713f3cba4a13110c9a46744
   react-native-rlottie: 3115ddd1c58993f48e173a1482122f0a1d648b11
   react-native-safe-area-context: a9616f1fd257ff31946b518266a62f50dbcb3d5b
   React-perflogger: a18b4f0bd933b8b24ecf9f3c54f9bf65180f3fe6
@@ -870,4 +881,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d8526c313816f66104b5aea3c8afbbc4f9bcfc03
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2

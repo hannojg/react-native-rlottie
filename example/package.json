@@ -14,7 +14,7 @@
     "@react-navigation/native-stack": "^6.6.2",
     "react": "17.0.2",
     "react-native": "0.68.2",
-    "react-native-performance-stats": "^0.2.1",
+    "react-native-performance-stats": "^0.2.3",
     "react-native-rlottie": "link:../",
     "react-native-safe-area-context": "^4.2.5",
     "react-native-screens": "^3.13.1",
