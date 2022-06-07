@@ -36,6 +36,11 @@ public class RLottieViewManagerImpl extends SimpleViewManager<RLottieView> {
     @ReactProp(name="isAutoPlay")
     public void setIsAutoPlay(RLottieView view, boolean isAutoPlay) {
         view.isAutoPlay = isAutoPlay;
+        // check if we need to start animation now
+        AXrLottieDrawable anim = view.getLottieDrawable();
+        if (isAutoPlay && anim != null && !anim.isRunning()) {
+            view.playAnimation();
+        }
     }
 
     @ReactProp(name="src")
