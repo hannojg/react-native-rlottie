@@ -8,6 +8,7 @@ include $(REACT_ANDROID_DIR)/Android-prebuilt.mk
 
 # Includes the MK file for `react-native-rlottie`
 include $(NODE_MODULES_DIR)/react-native-rlottie/android/build/generated/source/codegen/jni/Android.mk
+include $(NODE_MODULES_DIR)/react-native-performance-stats/android/build/generated/source/codegen/jni/Android.mk
 
 include $(CLEAR_VARS)
 
@@ -38,6 +39,7 @@ LOCAL_SHARED_LIBRARIES := \
   libjsi \
   libreact_codegen_rncore \
   libreact_codegen_rlottieview \
+  libreact_codegen_performancestats \
   libreact_debug \
   libreact_nativemodule_core \
   libreact_render_componentregistry \
