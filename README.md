@@ -11,7 +11,7 @@
 - 🤖 Especially on android, using rlottie can be more performant than [lottie-android](https://github.com/airbnb/lottie-android) (which is used by [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native)):
   - 📉 Using less CPU and RAM
   - 🏃‍♂️ Puts less pressure on the UI/main Thread, ensuring 60 FPS even on low end devices
-  - Read more in [Performance Comparison]()
+  - Read more in [Performance Comparison](#performance-comparison)
 
 ## Usage
 
@@ -46,9 +46,52 @@ export default App;
 
 ## Performance Comparison
 
+All data for the comparison can be found here: https://docs.google.com/spreadsheets/d/1Akz2As7HSJ7n9kmpIMYG966GY4QybOkJth5nNewYZhs/edit?usp=sharing
+
+We compared react-native-rlottie with lottie-react-native:
+
+
+### 🤖 Android 
+
+![react-native-rlottie vs lottie-react-native](./_img/android_metrics.png)
+
+#### Key observations
+
+- Running the animation consumes less CPU (-76%) and memory (-41%).
+- The animation runs fluently in 60 FPS, whereas lottie-android causes the FPS to drop.
+  - This is due to the fact that the animation used for testing is a "complex" one, and running the animation with the platform's animated/art API is more expensive then to render the animation as bitmaps.
+
+### 🍎 iOS
+
 ```
-// TODO
+// TODO: Comparison for ios
 ```
+
+#### Key observations
+
+- Running the animation with lottie-react-native adds CPU pressure. Using the example with an iPhone 7+ there is a ~10% CPU pressure during running the animation with lottie-rn, whereas with rlottie its 0%
+
+### Overall key points
+
+- Constantly running an animation with rlottie is in general more resource-saving, thus it can ensure more stable FPS, specially on low end devices.
+- **HOWEVER**, the first time you render the animation rlottie will use _more_ resources than lottie-rn, as it needs to decode all frames for the first time. For large and complex animations this can be a severe factor. That's why, especially on iOS, its recommanded to pre-load an animation.
+- In general, you should check the performance implications for each animation you are using, and test yourself if you are getting better results with lottie-rn or rlottie.
+
+_Note:_ The performance results have been recorded with [react-native-performance-stats](https://github.com/skillnation/react-native-performance-stats).
+
+### How to test yourself 
+
+<details>
+    <summary>Click to expand:</summary>
+
+- Setup the example app on your machine
+- You might want to replace the animation to test with your own. Simply replace the file `example/assets/icon_trophy.json`
+- First, open the "Performance test: RLottie" screen in the example app and press start.
+- Wait ~20 seconds until an array is printed to your console output
+- Copy that data to a online service that convert JSON data in CSV: https://www.convertcsv.com/json-to-csv.htm
+- Copy the resulting table and paste the data in a copy of the benchmark google sheet named earlier
+- Repeat the same with the lottie-react-native screen
+</details>
 
 ## Installation
 
@@ -71,7 +114,7 @@ npx pod-install
 No additional steps for android are required, except when using the new react native architecture:
 
 <details>
-    <summary>Click to expand for the instructions!</summary>
+    <summary>Click to expand for the instructions:</summary>
 
 (_Note:_ This setup is required to to the fact that the on android Autolinking doesn't work with the new architecture out of the box. This procedure will change in the future.)
 

@@ -1,10 +1,8 @@
 package nl.skillnation.rlottie;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.aghajari.rlottie.AXrLottie;
-import com.aghajari.rlottie.AXrLottieDrawable;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -35,25 +33,28 @@ public class RLottieViewManagerImpl extends SimpleViewManager<RLottieView> {
 
     @ReactProp(name="isAutoPlay")
     public void setIsAutoPlay(RLottieView view, boolean isAutoPlay) {
-        view.isAutoPlay = isAutoPlay;
+        view.setAutoPlay(isAutoPlay);
     }
 
     @ReactProp(name="src")
     public void setSrc(RLottieView view, String jsonString) {
-        view.setLottieDrawable(
-                AXrLottieDrawable
-                        .fromJson(jsonString, "cacheKeyTodo")
-                        .setSize(700, 700)
-                        .build()
-        );
-
-        if (view.isAutoPlay) view.playAnimation();
+        view.setJSONStringSource(jsonString);
     }
 
     @ReactProp(name="progress")
     public void setProgress(RLottieView view, float progress) {
         if (view == null || view.getLottieDrawable() == null) return; // TODO: With new arch setProgress isn't called (thus the animation isn't running)
         view.getLottieDrawable().setProgress(progress);
+    }
+
+    @ReactProp(name="decodeHeight")
+    public void setDecodeHeight(RLottieView view, int height) {
+        view.setDecodeHeight(height);
+    }
+
+    @ReactProp(name="decodeWidth")
+    public void setDecodeWidth(RLottieView view, int width) {
+        view.setDecodeWidth(width);
     }
 
     @Override
