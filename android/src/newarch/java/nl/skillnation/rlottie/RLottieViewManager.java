@@ -26,4 +26,14 @@ public class RLottieViewManager extends RLottieViewManagerImpl
     protected ViewManagerDelegate<RLottieView> getDelegate() {
         return mDelegate;
     }
+
+    @Override
+    public void setDecodeWidth(RLottieView view, float value) {
+        this.setDecodeWidth(view, Math.round(value));
+    }
+
+    @Override
+    public void setDecodeHeight(RLottieView view, float value) {
+        this.setDecodeHeight(view, Math.round(value));
+    }
 }

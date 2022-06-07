@@ -19,6 +19,7 @@ export const PerformanceScreen: React.FC<Props> = ({LottieComponent}) => {
   const [showAnim, setShowAnim] = useState(false);
 
   const onPressStart = () => {
+    console.log('Start performance measurement: base');
     let phase = 'BASE';
     const perfData: (PerformanceStatsData & {phase: string})[] = [];
     PerformanceStats.addListener(data => {
@@ -34,6 +35,7 @@ export const PerformanceScreen: React.FC<Props> = ({LottieComponent}) => {
 
     setTimeout(() => {
       phase = 'animation_running';
+      console.log('Performance measurement: running');
       setShowAnim(true);
       setTimeout(() => {
         PerformanceStats.stop();
@@ -47,7 +49,7 @@ export const PerformanceScreen: React.FC<Props> = ({LottieComponent}) => {
     <View style={styles.container}>
       <Button title="Start test" onPress={onPressStart} />
       {showAnim && (
-        <LottieComponent source={anim} autoPlay style={styles.anim} />
+        <LottieComponent autoPlay={true} source={anim} style={styles.anim} />
       )}
     </View>
   );
