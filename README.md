@@ -13,7 +13,7 @@
 
 ## Usage
 
-We try to be as close to the [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) implementation API, so you can use this library as drop-in replacement.
+We try to be as close to the [lottie-react-native](https://github.com/lottie-react-native/lottie-react-native) implementation API, so you can use this library as drop-in replacement/complement.
 
 So loading a local animation really is the same:
 
