@@ -14,6 +14,10 @@ export const HomeScreen = ({navigation}: NativeStackHeaderProps) => {
         title="🫰 Manually control animation progress"
         onPress={() => navigation.navigate('ManualControlScreen')}
       />
+      <Item
+        title="📊 Performance test: RLottie"
+        onPress={() => navigation.navigate('PerformanceRLottieScreen')}
+      />
     </ScrollView>
   );
 };

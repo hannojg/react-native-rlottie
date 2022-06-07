@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from './src/screens/HomeScreen';
 import {SimpleViewScreen} from './src/screens/SimpleViewScreen';
 import {ManualControlScreen} from './src/screens/ManualControlScreen';
+import { PerformanceRLottieScreen } from './src/screens/PerformanceRLottieScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ const App = () => {
           name="ManualControlScreen"
           component={ManualControlScreen}
         />
+        <Stack.Screen name="PerformanceRLottieScreen" component={PerformanceRLottieScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

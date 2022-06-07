@@ -5834,6 +5834,11 @@ react-native-gradle-plugin@^0.0.6:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
 
+react-native-performance-stats@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-performance-stats/-/react-native-performance-stats-0.2.1.tgz#2b5c22878034881c3f775353342f91f13e020147"
+  integrity sha512-RkWVd8aItmfx02J3cHkrARFBOvvBzidh6u9/z3N/he26qHRWaUPOM1qdtVUienP3ShSg9ieiuX6BTGSRkYR0QQ==
+
 "react-native-rlottie@link:..":
   version "0.0.0"
   uid ""
