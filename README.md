@@ -94,9 +94,9 @@ _Note:_ The performance results have been recorded with [react-native-performanc
 ## Installation
 
 ```bash
-yarn add react-native-rlottie
+yarn add react-native-rlottie@alpha
 
-npm i react-native-rlottie
+npm i react-native-rlottie@alpha
 ```
 
 ### iOS
