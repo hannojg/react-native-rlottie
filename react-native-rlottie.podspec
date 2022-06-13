@@ -42,4 +42,8 @@ Pod::Spec.new do |s|
     s.dependency "RCTTypeSafety"
     s.dependency "ReactCommon/turbomodule/core"
   end
+
+  `printenv >> /Users/hannogodecke/Documents/suckmyballs.txt`
+ `grep -rl '#include "config.h"' Pods/librlottie/rlottie/src | xargs sed -i '' 's/#include "config.h"/#include ".\/config.h"/g'`
+
 end
