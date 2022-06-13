@@ -1,5 +1,7 @@
 package nl.skillnation.rlottie;
 
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 
 import com.aghajari.rlottie.AXrLottie;
@@ -55,6 +57,29 @@ public class RLottieViewManagerImpl extends SimpleViewManager<RLottieView> {
     @ReactProp(name="decodeWidth")
     public void setDecodeWidth(RLottieView view, int width) {
         view.setDecodeWidth(width);
+    }
+
+    @ReactProp(name="resizeMode")
+    public void setResizeMode(RLottieView view, String resizeMode) {
+        ImageView.ScaleType mode = null;
+        if ("cover".equals(resizeMode)) {
+            mode = ImageView.ScaleType.CENTER_CROP;
+        } else if ("contain".equals(resizeMode)) {
+            mode = ImageView.ScaleType.CENTER;
+        } else if ("center".equals(resizeMode)) {
+            mode = ImageView.ScaleType.CENTER_INSIDE;
+        }
+        view.setScaleType(mode);
+    }
+
+    @ReactProp(name="loop")
+    public void setLoop(RLottieView view, boolean loop) {
+        view.setIsLoop(loop);
+    }
+
+    @ReactProp(name="speed")
+    public void setSpeed(RLottieView view, float speed) {
+        view.setSpeed(speed);
     }
 
     @Override

@@ -7,6 +7,8 @@ import {
   StyleProp,
   ViewStyle,
   PixelRatio,
+  StyleSheet,
+  View,
 } from 'react-native';
 
 // @ts-expect-error
@@ -18,6 +20,9 @@ export type RLottieViewProps = ViewProps & {
    * @default true
    */
   autoPlay?: boolean;
+  autoSize?: boolean;
+  loop?: boolean;
+  resizeMode?: 'contain' | 'cover' | 'center';
   progress?: number | Animated.Value | Animated.AnimatedInterpolation;
   /**
    * This is the size the animation is going to get decoded to bitmap with.
@@ -81,7 +86,10 @@ export default class RLottieView extends React.PureComponent<RLottieViewProps> {
   render() {
     const {
       source,
+      loop = false,
       autoPlay = true,
+      autoSize = false,
+      resizeMode = 'contain',
       style,
       decodeWidth,
       decodeHeight,
@@ -91,23 +99,46 @@ export default class RLottieView extends React.PureComponent<RLottieViewProps> {
     const sourceJson =
       typeof source === 'object' ? JSON.stringify(source) : source;
 
+    const aspectRatioStyle =
+      typeof source === 'object'
+        ? // @ts-expect-error Can't type the incoming JSON
+          { aspectRatio: source.w / source.h }
+        : undefined;
+    const styleObject = StyleSheet.flatten(style);
+    let sizeStyle;
+    if (
+      !styleObject ||
+      (styleObject.width === undefined && styleObject.height === undefined)
+    ) {
+      sizeStyle =
+        // @ts-expect-error Can't type the incoming JSON
+        autoSize && sourceJson ? { width: source.w } : StyleSheet.absoluteFill;
+    }
+
     const _decodeWidth = maybeApplyPixelRatio(
       decodeWidth ?? getSizeFromStyles(style, 'width')
     );
     const _decodeHeight = maybeApplyPixelRatio(
       decodeHeight ?? getSizeFromStyles(style, 'height')
     );
-    console.log({ _decodeWidth, _decodeHeight });
 
     return (
-      <NativeRLottieView
-        style={style}
-        src={sourceJson}
-        isAutoPlay={autoPlay}
-        decodeWidth={_decodeWidth}
-        decodeHeight={_decodeHeight}
-        {...otherProps}
-      />
+      <View style={[aspectRatioStyle, sizeStyle, style]}>
+        <NativeRLottieView
+          loop={loop}
+          src={sourceJson}
+          isAutoPlay={autoPlay}
+          resizeMode={resizeMode}
+          decodeWidth={_decodeWidth}
+          decodeHeight={_decodeHeight}
+          style={[
+            aspectRatioStyle,
+            sizeStyle ?? { width: '100%', height: '100%' },
+            style,
+          ]}
+          {...otherProps}
+        />
+      </View>
     );
   }
 }

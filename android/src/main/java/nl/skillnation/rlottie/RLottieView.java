@@ -10,7 +10,9 @@ import com.aghajari.rlottie.AXrLottieDrawable;
 import com.aghajari.rlottie.AXrLottieImageView;
 
 public class RLottieView extends AXrLottieImageView {
-    public boolean isAutoPlay = false;
+    private boolean isAutoPlay = false;
+    private float speed = 1.0f;
+
     private int decodeWidth, decodeHeight;
     private String jsonString;
     private boolean isInit;
@@ -74,6 +76,7 @@ public class RLottieView extends AXrLottieImageView {
         setLottieDrawable(
                 AXrLottieDrawable.fromJson(jsonString, cacheKey)
                         .setSize(decodeWidth, decodeHeight)
+                        .setSpeed(speed)
                         .build()
         );
 
@@ -85,11 +88,40 @@ public class RLottieView extends AXrLottieImageView {
     public void setAutoPlay(boolean autoPlay) {
         isAutoPlay = autoPlay;
         maybeAutoStartAnimation();
+        if (!autoPlay && isInit && getLottieDrawable() != null && !getLottieDrawable().isRunning()) {
+            this.stopAnimation();
+        }
     }
 
     private void maybeAutoStartAnimation() {
         if (isAutoPlay && getLottieDrawable() != null && !getLottieDrawable().isRunning()) {
             playAnimation();
+        }
+    }
+    //#endregion
+
+    //#region Properties: Loop, speed
+    public void setIsLoop(boolean loop) {
+        super.setAutoRepeat(loop);
+        if (getLottieDrawable() != null) {
+            if (!loop) {
+                stopAnimation();
+            }
+
+            isInit = false;
+            maybeInitAnimation();
+        }
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+        if (getLottieDrawable() != null) {
+            if (speed <= 0) {
+                stopAnimation();
+            } else {
+                isInit = false;
+                maybeInitAnimation();
+            }
         }
     }
     //#endregion
