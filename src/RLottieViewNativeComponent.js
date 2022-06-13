@@ -15,6 +15,22 @@ type NativeProps = $ReadOnly<{|
    * @default false
    */
   isAutoPlay?: boolean,
+  /**
+   * @default 1.0
+   */
+  speed?: Float,
+  /**
+   * @default "contain"
+   */
+  resizeMode?: string,
+  /**
+   * @default false
+   */
+  autoSize?: boolean,
+  /**
+   * @default true
+   */
+  loop?: boolean,
   progress?: Float,
   decodeWidth?: Float,
   decodeHeight?: Float,

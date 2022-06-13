@@ -23,6 +23,10 @@ export type RLottieViewProps = ViewProps & {
   autoSize?: boolean;
   loop?: boolean;
   resizeMode?: 'contain' | 'cover' | 'center';
+  /**
+   * @default 1.0
+   */
+  speed?: number;
   progress?: number | Animated.Value | Animated.AnimatedInterpolation;
   /**
    * This is the size the animation is going to get decoded to bitmap with.
@@ -86,7 +90,7 @@ export default class RLottieView extends React.PureComponent<RLottieViewProps> {
   render() {
     const {
       source,
-      loop = false,
+      loop = true,
       autoPlay = true,
       autoSize = false,
       resizeMode = 'contain',
