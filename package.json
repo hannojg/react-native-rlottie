@@ -1,6 +1,6 @@
 {
   "name": "react-native-rlottie",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "RLottie for react native",
   "react-native": "src/index.tsx",
   "source": "src/index",
